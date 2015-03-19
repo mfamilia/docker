@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# Load environment variables
+export > /etc/envvars
+
+# Start Runit 
+exec /usr/sbin/runsvdir-start
