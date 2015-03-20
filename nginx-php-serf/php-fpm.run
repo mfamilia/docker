@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# PHP-FPM Runit service
+
+# load environment variables
+exec 2>&1
+source /etc/envvars
+
+# start PHP-FPM
+exec /usr/sbin/php-fpm --nodaemonize

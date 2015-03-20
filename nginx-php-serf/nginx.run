@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Nginx Runit service
+
+# load environment variables
+exec 2>&1
+source /etc/envvars
+
+# start Nginx
+exec /usr/sbin/nginx -c /etc/nginx/nginx.conf
