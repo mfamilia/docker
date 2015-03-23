@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# MariaDB Runit service
+
+# load environment variables
+exec 2>&1
+source /etc/envvars
+
+# check if MariaDB is ready
+if [[ ! -d /var/lib/mysql/mysql ]]
+	then
+		echo "=> Empty or uninitialized MariaDB volume is detected in /var/lib/mysql"
+		/config-mariadb.sh
+	else
+		echo "=> Using existing volume of MariaDB"
+fi
+
+# start MariaDB
+exec /usr/bin/mysqld_safe
+
