@@ -1,7 +1,7 @@
 # 
 # ementux/mariadb
 #
-# MariaDB container for scalable web
+# MariaDB container and Serf for scalable web
 #
 # See https://github.com/ementux/docker
 #
@@ -20,12 +20,23 @@ RUN mkdir -p /etc/service/mariadb/
 COPY mariadb.run /etc/service/mariadb/run
 RUN chmod 755 /etc/service/mariadb/run
 
+# install Serf
+ADD https://dl.bintray.com/mitchellh/serf/0.6.4_linux_amd64.zip /tmp/serf.zip
+RUN unzip /tmp/serf.zip -d /usr/local/bin/
+RUN rm /tmp/serf.zip
+
+# add configuration files and handlers for Serf
+COPY serf-config /etc/serf
+RUN mkdir -p /etc/service/serf/
+COPY serf.run /etc/service/serf/run
+RUN chmod 755 /etc/service/serf/run
+
 # add volume for MariDB
 VOLUME [ "/var/lib/mysql" ]
 
-# expose MariaDB port
-EXPOSE 3306
+# expose MariaDB & Serf ports
+EXPOSE 3306 7946 7373
 
-# start MariaDB 
+# start MariaDB and Serf
 ENTRYPOINT [ "/usr/sbin/runit_bootstrap" ]
 
