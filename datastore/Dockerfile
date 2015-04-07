@@ -12,7 +12,7 @@ MAINTAINER Michal Grna <michal.grna@ementux.org>
 VOLUME [ "/var/lib/mysql" , "/srv/www/logs" , "/srv/www/public_html" ]
 
 # add start script
-ADD run.sh /run.sh
+COPY run.sh /run.sh
 RUN chmod 755 /run.sh
 
 # print info to STDOUT and exit
