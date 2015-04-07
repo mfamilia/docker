@@ -9,7 +9,7 @@ FROM ementux/base
 MAINTAINER Michal Grna <michal.grna@ementux.org>
 
 # install MariaDB
-RUN yum -y update && yum -y install mariadb mariadb-server pwgen && yum clean all
+RUN yum -y update && yum -y install mariadb mariadb-server pwgen unzip && yum clean all
 
 # add configuration and wrapper for MariaDB
 COPY my.cnf /etc/my.cnf
