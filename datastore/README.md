@@ -4,6 +4,7 @@ ementux/datastore
 This image is used to keep data for scalable WP site. By default there are prepared following volumes:
 
 - /var/lib/mysql
+- /srv/certs
 - /srv/www/logs
 - /srv/www/public_html
 

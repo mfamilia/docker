@@ -9,7 +9,7 @@ FROM busybox
 MAINTAINER Michal Grna <michal.grna@ementux.org>
 
 # prepare volumes for website
-VOLUME [ "/var/lib/mysql" , "/srv/www/logs" , "/srv/www/public_html" ]
+VOLUME [ "/var/lib/mysql" , "/srv/certs", "/srv/www/logs" , "/srv/www/public_html" ]
 
 # add start script
 COPY run.sh /run.sh
