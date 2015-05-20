@@ -8,7 +8,7 @@
 FROM busybox
 MAINTAINER Michal Grna <michal.grna@ementux.org>
 
-# prepare volumes for website
+# prepare volumes for web, db & haproxy
 VOLUME [ "/var/lib/mysql" , "/srv/certs", "/srv/www/logs" , "/srv/www/public_html" ]
 
 # add start script
