@@ -28,12 +28,6 @@ RUN mkdir -p /etc/service/serf/
 COPY serf.run /etc/service/serf/run
 RUN chmod 755 /etc/service/serf/run
 
-# add certifications volume
-VOLUME [ "/srv/certs" ]
-RUN chown -R root:root /srv/certs
-RUN chmod 755 /srv/certs
-RUN chmod 644 /srv/certs/*
-
 # expose http(s) & HAProxy stats & Serf ports
 EXPOSE 80 443 7946 7373 9876
 
